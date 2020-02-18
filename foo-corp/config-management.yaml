@@ -1,0 +1,14 @@
+# config-management.yaml
+
+apiVersion: configmanagement.gke.io/v1
+kind: ConfigManagement
+metadata:
+  name: config-management
+spec:
+  # clusterName is required and must be unique among all managed clusters
+  clusterName: gkeaws1
+  git:
+    syncRepo: git@github.com:zsais/csp-config-management.git
+    syncBranch: 1.0.0
+    secretType: ssh
+    policyDir: "foo-corp"
